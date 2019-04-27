@@ -1,11 +1,11 @@
 # CVFX-HW4-17
 ## Take a sequence of moving-forward images in NTHU campus.
-![](https://i.imgur.com/lNqXKBW.png)
+![](https://i.imgur.com/lNqXKBW.png)  
 ## Show feature extraction and matching results between two images 
-feature extraction using ORB method (number of feature = 500)
-![](https://i.imgur.com/Wwx4aGN.png)
-matching in RGB image (matching number = 75)
-![](https://i.imgur.com/jQ3wZDW.jpg)
+feature extraction using ORB method (number of feature = 500)  
+![](https://i.imgur.com/Wwx4aGN.png)  
+matching in RGB image (matching number = 75)  
+![](https://i.imgur.com/jQ3wZDW.jpg)  
 ## Perform image alignment and generate infinite zooming effect 
 let the image on the right side aligned with the image on the left side
 
@@ -14,7 +14,7 @@ let the image on the right side aligned with the image on the left side
 | ![](https://i.imgur.com/xUsY47g.jpg)| ![](https://i.imgur.com/ToQjcr9.jpg) |
 # TODO infinite zooming effect
 ## implement different feature extrators, e.g. SIFT, SURF, and compare the results 
-
+we implement following methods. We will first summary the feature extrators and then show image results of different methods. 
 ### SIFT
 SIFT is propsed by D.Lowe, University of British Columbia in his paper, Distinctive Image Features from Scale-Invariant Keypoints, which extract keypoints and compute its descriptors. There are mainly four steps in SIFT.  
 1.Scale-space Extrema Detection -- use difference of Gaussians to approximate LoG and search local extrema over scale and space.  
@@ -27,9 +27,8 @@ SURF stands for Speeded Up Robust Features. SURF goes a little further and appro
 SURF without calculating orientation.
 ### ORB
 ORB came from "OpenCV Labs". Compare with SIFT and SURF, the main advantage for ORB is that you are not supposed to pay for its use. ORB is basically a fusion of FAST keypoint detector and BRIEF descriptor with many modifications to enhance the performance. 
-### image compare 
-
-all method draw 2000 feature keypoint
+## image compare 
+To easily compare, we modify the threadhold of SURF/USURF and feature number of SIFT/ORB so that all method detect 2000 feature keypoint.
 
 | orgin | SIFT |
 | -------- | -------- |
@@ -50,3 +49,14 @@ all method draw 2000 feature keypoint
 | USURF | ORB |
 | -------- | -------- |
 | ![](https://i.imgur.com/O4TmWeC.jpg)| ![](https://i.imgur.com/z9n5E4D.jpg)|
+**SIFT** : Most feature's scale are small. Since the OpenCV document said the features are ranked by the local contrast. We guess that the smaller the scale is, the higher the local contrast of feature is.
+**SURF/USURF** : As you can see in the car image, SURF not only detect the car but also detect some objects in the back ground. The average scale of keypoints is between SIFT and ORB. The only difference between SURF and USURF is the latter's orientations are shown in same direction while the former are not.
+**ORB** : The scale of features are much larger than others. Specially focus on some region result in a lot of overlapping.  
+### experiment & analysis
+We also conduct the experiment of execution time based on python timeit (calculate average from 100 loops).
+|  | SIFT | SURF | USURF | ORB | 
+| -------- | -------- | -------- | -------- | -------- | 
+| execution time (sec)     |  0.157   | 0.112     | 0.060     | 0.037     |
+| for business usage | need pay | need pay | need pay | free |
+| most feature scale | small | medium | medium | big | 
+| feature distribution     | equally     | equally     | equally     | centrally     | 
