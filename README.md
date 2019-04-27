@@ -54,7 +54,7 @@ To easily compare, we modify the threadhold of SURF/USURF and feature number of 
 **SURF/USURF** : As you can see in the car image, SURF not only detect the car but also detect some objects in the back ground. The average scale of keypoints is between SIFT and ORB. The only difference between SURF and USURF is the latter's orientations are shown in same direction while the former are not.  
 **ORB** : The scale of features are much larger than others. Specially focus on some region result in a lot of overlapping.  
 ### experiment & analysis
-We also conduct the experiment of execution time based on python timeit (calculate average from 100 loops).
+We also conduct the experiment of execution time based on python timeit (calculate average from 100 loops).  
 |  | SIFT | SURF | USURF | ORB | 
 | -------- | -------- | -------- | -------- | -------- | 
 | execution time (sec)     |  0.157   | 0.112     | 0.060     | 0.037     |
