@@ -55,9 +55,10 @@ To easily compare, we modify the threadhold of SURF/USURF and feature number of 
 **ORB** : The scale of features are much larger than others. Specially focus on some region result in a lot of overlapping.  
 ### experiment & analysis
 We also conduct the experiment of execution time based on python timeit (calculate average from 100 loops).  
-|  | SIFT | SURF | USURF | ORB | 
+
+| descroption | SIFT | SURF | USURF | ORB | 
 | -------- | -------- | -------- | -------- | -------- | 
 | execution time (sec)     |  0.157   | 0.112     | 0.060     | 0.037     |
 | for business usage | need pay | need pay | need pay | free |
 | most feature scale | small | medium | medium | big | 
-| feature distribution     | equally     | equally     | equally     | centrally     | 
+| feature distribution     | equally | equally | equally | centrally     | 
