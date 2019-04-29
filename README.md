@@ -14,6 +14,7 @@ let the image on the right side aligned with the image on the left side
 | ![](https://i.imgur.com/xUsY47g.jpg)| ![](https://i.imgur.com/ToQjcr9.jpg) |
 ## infinite zooming effect
 <iframe width="560" height="315" src="https://www.youtube.com/embed/88LUi5Nmv4Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![ERROR](https://img.youtube.com/vi/88LUi5Nmv4Q/0.jpg)](https://www.youtube.com/watch?v=88LUi5Nmv4Q)
 ## implement different feature extrators, e.g. SIFT, SURF, and compare the results 
 we implement following methods. We will first summary the feature extrators and then show image results of different methods. 
 ### SIFT
